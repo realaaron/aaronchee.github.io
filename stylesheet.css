@@ -18,6 +18,7 @@ body {
     width: 100%;
     padding: 20px 10%;
     background: white;
+    color: black;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -506,16 +507,19 @@ section {
     .home {
         padding: 20px;
         text-align: center;
+        color: black;
     }
     .home-content h1 {
         font-size: 40px;
     }
     .home-content p {
         font-size: 16px;
+        color: black;
     }
     .about {
         grid-template-columns: 1fr;
         padding: 20px;
+        color: black;
     }
     .about-img img {
         width: 100%;
@@ -523,6 +527,7 @@ section {
     }
     .about-text h2 {
         font-size: 30px;
+        color: black
     }
     .projects {
         margin: 0;
