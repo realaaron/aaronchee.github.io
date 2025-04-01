@@ -10,11 +10,23 @@ body{
     background: #000000;
     color: #ededed;
 }
-@media screen and (max-width: 768px) {
-    header.header {
-      flex-direction: column;
-      text-align: center;
-    }
+@media only screen and (min-device-width: 320px) and (max-device-width: 812px) and (-webkit-device-pixel-ratio: 2) {
+  /* These rules will apply on many iPhones */
+  body {
+    /* Example adjustment */
+    background-color: #f0f0f0;
+  }
+  
+  header.header {
+    padding: 15px;
+  }
+  
+  nav.navbar a {
+    font-size: 0.9rem;
+    padding: 5px 8px;
+  }
+  
+  /* Add any other overrides specific to iPhone layouts here */
 }
 
 .header
