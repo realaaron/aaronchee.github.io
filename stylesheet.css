@@ -529,6 +529,10 @@ section {
         font-size: 30px;
         color: black
     }
+    .about-text p {
+        color: #000;
+    }
+    
     .projects {
         margin: 60px;
     }
