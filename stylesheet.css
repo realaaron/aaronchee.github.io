@@ -50,7 +50,7 @@ body {
 }
 
 .navbar a:hover {
-    color: orange;
+    color: cyan;
 }
 
 .home {
@@ -132,7 +132,7 @@ body {
 .btn-box {
     display: inline-block;
     padding: 12px 28px;
-    background: orange;
+    background: cyan;
     border-radius: 40px;
     font-size: 16px;
     color: #fff;
@@ -182,7 +182,7 @@ body {
 }
 
 .about-text h2 span {
-    color: orange;
+    color: cyan;
 }
 
 .about-text h4 {
@@ -236,7 +236,7 @@ body {
     border-right: 10px;
     border-radius: 20px;
     transition: background 0.5s, transform 0.5s;
-    box-shadow: 1px 1px 20px #880000, 1px 1px 40px orange;
+    box-shadow: 1px 1px 20px #880000, 1px 1px 40px cyan;
 }
 
 .services-list div i {
@@ -261,7 +261,7 @@ body {
 .read {
     display: inline-block;
     padding: 12px 20px;
-    background: orange;
+    background: cyan;
     border-radius: 40px;
     font-size: 16px;
     color: #081b29;
@@ -271,7 +271,7 @@ body {
     opacity: 0;
     animation: slideTop 1s ease forwards;
     animation-delay: 2s;
-    box-shadow: 0 0 5px orange, 0 0 25px orange;
+    box-shadow: 0 0 5px cyan, 0 0 25px cyan;
 }
 
 .read:hover {
