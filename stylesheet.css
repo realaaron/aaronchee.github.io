@@ -112,7 +112,7 @@ body {
     border: 2px solid cyan;
     border-radius: 50%;
     font-size: 20px;
-    color: orange;
+    color: white;
     text-decoration: none;
     transition: .5s ease;
     opacity: 0;
@@ -142,15 +142,15 @@ body {
     opacity: 0;
     animation: slideTop 1s ease forwards;
     animation-delay: 2s;
-    box-shadow: 0 0 5px orange, 0 0 25px orange;
+    box-shadow: 0 0 5px cyan, 0 0 25px cyan;
 }
 
 .btn-box:hover {
-    box-shadow: 0 0 5px orange,
-                0 0 25px orange, 
-                0 0 50px orange, 
-                0 0 100px orange, 
-                0 0 200px orange;
+    box-shadow: 0 0 5px cyan,
+                0 0 25px cyan, 
+                0 0 50px cyan, 
+                0 0 100px cyan, 
+                0 0 200px cyan;
 }
 
 .about {
@@ -214,7 +214,7 @@ body {
 }
 
 .sub-title span {
-    color: orange;
+    color: cyan;
 }
 
 .container {
