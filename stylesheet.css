@@ -236,7 +236,7 @@ body {
     border-right: 10px;
     border-radius: 20px;
     transition: background 0.5s, transform 0.5s;
-    box-shadow: 1px 1px 20px #880000, 1px 1px 40px cyan;
+    box-shadow: 1px 1px 20px white, 1px 1px 40px cyan;
 }
 
 .services-list div i {
@@ -493,9 +493,11 @@ section {
     body {
         background-color: #f0f0f0;
         color: #000;
-        display: inline-flex;
+        display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
+        min-height: 100vh;
     }
     .header {
         padding: 10px;
