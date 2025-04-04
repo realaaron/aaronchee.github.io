@@ -275,10 +275,10 @@ body {
 }
 
 .read:hover {
-    box-shadow: 0 0 5px orange,
-                0 0 25px orange,
-                0 0 100px orange,
-                0 0 200px orange;
+    box-shadow: 0 0 5px cyan,
+                0 0 25px cyan,
+                0 0 100px cyan,
+                0 0 200px cyan;
 }
 
 .services-list div:hover {
@@ -320,7 +320,7 @@ section {
 }
 
 .progress-line {
-    background: #fff;
+    background: grey;
     width: 600px;
     height: 10px;
     border-radius: 5px;
@@ -330,7 +330,7 @@ section {
     height: 10px;
     border-radius: 5px;
     width: 50%;
-    background: orange;
+    background: white;
 }
 
 /* Animations for skill bars and slide effects */
@@ -493,6 +493,9 @@ section {
     body {
         background-color: #f0f0f0;
         color: #000;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
     }
     .header {
         padding: 10px;
