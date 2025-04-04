@@ -109,7 +109,7 @@ body {
     width: 40px;
     height: 40px;
     background: transparent;
-    border: 2px solid orange;
+    border: 2px solid cyan;
     border-radius: 50%;
     font-size: 20px;
     color: orange;
@@ -122,7 +122,7 @@ body {
 }
 
 .home-sci a:hover {
-    background: orange;
+    background: cyan;
     color: #081b29;
     letter-spacing: 1px;
     text-decoration: none;
