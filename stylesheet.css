@@ -558,6 +558,7 @@ section {
     font-size: 30px;
     font-weight: 500;
     margin-bottom: 15px;
+    color:#000
 }
 
 .services-list div a {
@@ -566,6 +567,14 @@ section {
     font-size: 12px;
     margin-top: 20px;
     display: inline-block;
+}
+.services-list div p {
+    text-decoration: none;
+    color: #000000;
+    font-size: 12px;
+    margin-top: 20px;
+    display: inline-block;
+
 }
 }
 
