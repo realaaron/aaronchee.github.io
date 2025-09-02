@@ -85,7 +85,7 @@ body {
 }
 
 .home-content h3 span {
-    color: cyan;
+    color: wheat;
 }
 
 .home-content h1 {
@@ -182,7 +182,7 @@ body {
 }
 
 .about-text h2 span {
-    color: cyan;
+    color: wheat;
 }
 
 .about-text h4 {
@@ -214,7 +214,7 @@ body {
 }
 
 .sub-title span {
-    color: cyan;
+    color: wheat;
 }
 
 .container {
@@ -261,7 +261,7 @@ body {
 .read {
     display: inline-block;
     padding: 12px 20px;
-    background: cyan;
+    background: wheat;
     border-radius: 40px;
     font-size: 16px;
     color: #081b29;
