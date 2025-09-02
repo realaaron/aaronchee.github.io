@@ -17,7 +17,7 @@ body {
     left: 0;
     width: 100%;
     padding: 20px 10%;
-    background: white;
+    background: wheat;
     color: black;
     display: flex;
     justify-content: space-between;
@@ -109,7 +109,7 @@ body {
     width: 40px;
     height: 40px;
     background: transparent;
-    border: 2px solid cyan;
+    border: 2px solid wheat;
     border-radius: 50%;
     font-size: 20px;
     color: white;
@@ -122,7 +122,7 @@ body {
 }
 
 .home-sci a:hover {
-    background: cyan;
+    background: wheat;
     color: #081b29;
     letter-spacing: 1px;
     text-decoration: none;
