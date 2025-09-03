@@ -201,7 +201,7 @@ body {
 }
 
 #services {
-    color: gold;
+    color: white;
     font-size: 20px;
     line-height: 1.4;
     margin-bottom: 4rem;
@@ -236,7 +236,7 @@ body {
     border-right: 10px;
     border-radius: 20px;
     transition: background 0.5s, transform 0.5s;
-    box-shadow: 1px 1px 20px white, 1px 1px 40px cyan;
+    box-shadow: 1px 1px 20px wheat, 1px 1px 40px gold;
 }
 
 .services-list div i {
