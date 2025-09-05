@@ -146,11 +146,11 @@ body {
 }
 
 .btn-box:hover {
-    box-shadow: 0 0 5px cyan,
-                0 0 25px cyan, 
-                0 0 50px cyan, 
-                0 0 100px cyan, 
-                0 0 200px cyan;
+    box-shadow: 0 0 5px wheat,
+                0 0 25px wheat, 
+                0 0 50px wheat, 
+                0 0 100px wheat, 
+                0 0 200px wheat;
 }
 
 .about {
@@ -271,14 +271,14 @@ body {
     opacity: 0;
     animation: slideTop 1s ease forwards;
     animation-delay: 2s;
-    box-shadow: 0 0 5px cyan, 0 0 25px cyan;
+    box-shadow: 0 0 5px gold, 0 0 25px white;
 }
 
 .read:hover {
-    box-shadow: 0 0 5px cyan,
-                0 0 25px cyan,
-                0 0 100px cyan,
-                0 0 200px cyan;
+    box-shadow: 0 0 5px gold,
+                0 0 25px gold,
+                0 0 100px gold,
+                0 0 200px gold;
 }
 
 .services-list div:hover {
