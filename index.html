@@ -1,228 +1,1088 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-        <meta name="viewport" content="width-device-width, initial-scale= 1.0">
-        <title>Portfolio</title>
-        <link rel="stylesheet" href="stylesheet.css">
-        <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
-        <script src="https://unpkg.com/typed.js@2.0.15/dist/typed.umd.js"></script>
-        
-    </head>
-    <body>
-        <header class="header">
-            <a href="#" class="logo">Aaron Chee</a>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aaron Chee — Data Engineer</title>
 
-            <nav class="navbar">
-                <a href="#" style="--i:1" class="active"> Home</a>
-                <a href="#about" style="--i:2" class="active">About</a>
-                <a href="#skills" style="--i:3" class="active">Skill</a>
-                <a href="#" style="--i:4" class="active">Contact</a>
-                <a href="#" style="--i:5" class="active">Portfolio</a>
-            </nav>
-        </header>
-        
-        
-    <section class="home">
-        <div class="home-content">
-            <h3>Hello, It's me</h3>
-            <h1>Aaron Chee</h1>
-            <h3>And I'm a <span class="text"></span></h3>
-            <p>I'm a web developer with extensive training for over three years <br>expertise is to create and design websites, front-end designs</br></p>
+  <meta name="description" content="Aaron Chee — Data Engineer. BigQuery, Looker, SQL, Kafka. Building reliable data products and dashboards that drive decisions." />
+  <meta name="theme-color" content="#0b0f14" />
 
-            <div class="home-sci">
-                <a href="#" style="--i:7" class="active"><i class="bx bxl-facebook"></i></a>
-                <a href="#" style="--i:8" class="active"><i class="bx bxl-linkedin"></i></a>
-                <a href="#" style="--i:9" class="active"><i class="bx bx-phone"></i></a>
-                <a href="#" style="--i:10" class="active"><i class="bx bx-envelope"></i></a>
-                <a href="#" style="--i:11" class="active"><i class="bx bxl-instagram"></i></a>
+  <!-- Icons -->
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+
+  <!-- Typed.js (optional) -->
+  <script src="https://unpkg.com/typed.js@2.0.15/dist/typed.umd.js"></script>
+
+  <style>
+    /* ==========================
+       UH-Inspired Portfolio Theme
+       Dark mode default
+
+       Palette aligned to UH Brand Style Guide:
+       Red #C8102E, White #FFFFFF, Black #000000, Slate #54585A
+       ========================== */
+
+    :root {
+      --uh-red: #c8102e;  /* UH primary red */
+      --uh-white: #ffffff;
+      --uh-black: #000000;
+      --uh-slate: #54585a; /* UH slate */
+
+      /* Dark theme tokens */
+      --bg: #0b0f14;
+      --panel: rgba(255, 255, 255, 0.06);
+      --panel-2: rgba(255, 255, 255, 0.08);
+      --text: rgba(255, 255, 255, 0.92);
+      --muted: rgba(255, 255, 255, 0.72);
+      --faint: rgba(255, 255, 255, 0.55);
+      --border: rgba(255, 255, 255, 0.12);
+
+      --shadow: 0 18px 60px rgba(0, 0, 0, 0.35);
+      --radius: 18px;
+      --radius-sm: 14px;
+
+      --max: 1120px;
+
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial,
+        "Apple Color Emoji", "Segoe UI Emoji";
+      --serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+
+      --focus: 0 0 0 3px rgba(200, 16, 46, 0.35);
+    }
+
+    body.theme-light {
+      --bg: #f7f7f8;
+      --panel: rgba(0, 0, 0, 0.04);
+      --panel-2: rgba(0, 0, 0, 0.06);
+      --text: rgba(0, 0, 0, 0.88);
+      --muted: rgba(0, 0, 0, 0.65);
+      --faint: rgba(0, 0, 0, 0.55);
+      --border: rgba(0, 0, 0, 0.12);
+
+      --shadow: 0 18px 60px rgba(0, 0, 0, 0.12);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: var(--sans);
+      background: radial-gradient(1200px 600px at 10% 0%, rgba(200,16,46,0.14), transparent 55%),
+                  radial-gradient(900px 500px at 90% 10%, rgba(84,88,90,0.20), transparent 60%),
+                  var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    a:hover { opacity: 0.98; }
+
+    .container {
+      width: min(var(--max), calc(100% - 2rem));
+      margin-inline: auto;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: -999px;
+      top: 8px;
+      padding: 0.6rem 0.9rem;
+      background: var(--uh-red);
+      border-radius: 999px;
+      color: var(--uh-white);
+      z-index: 9999;
+    }
+    .skip-link:focus { left: 12px; outline: none; box-shadow: var(--focus); }
+
+    /* Header */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(10px);
+      background: linear-gradient(to bottom, rgba(11,15,20,0.78), rgba(11,15,20,0.40));
+      border-bottom: 1px solid var(--border);
+    }
+    body.theme-light .header {
+      background: linear-gradient(to bottom, rgba(247,247,248,0.85), rgba(247,247,248,0.55));
+    }
+
+    .header__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.85rem 0;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.2px;
+    }
+    .logo__mark {
+      width: 14px;
+      height: 14px;
+      border-radius: 4px;
+      background: var(--uh-red);
+      box-shadow: 0 0 0 5px rgba(200,16,46,0.16);
+    }
+    .logo__text { font-size: 1.02rem; }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+    }
+    .nav a {
+      padding: 0.55rem 0.75rem;
+      border-radius: 999px;
+      color: var(--muted);
+      border: 1px solid transparent;
+    }
+    .nav a:hover,
+    .nav a:focus-visible {
+      color: var(--text);
+      border-color: var(--border);
+      outline: none;
+    }
+    .nav__cta {
+      background: rgba(200,16,46,0.14);
+      border: 1px solid rgba(200,16,46,0.25) !important;
+      color: var(--text) !important;
+    }
+
+    .theme-toggle {
+      border: 1px solid var(--border);
+      background: var(--panel);
+      color: var(--text);
+      padding: 0.55rem 0.7rem;
+      border-radius: 999px;
+      cursor: pointer;
+    }
+    .theme-toggle:focus-visible { outline: none; box-shadow: var(--focus); }
+
+    .nav-toggle {
+      display: none;
+      border: 1px solid var(--border);
+      background: var(--panel);
+      color: var(--text);
+      padding: 0.55rem 0.75rem;
+      border-radius: 12px;
+      cursor: pointer;
+    }
+    .nav-toggle:focus-visible { outline: none; box-shadow: var(--focus); }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      padding: 4.25rem 0 2.75rem;
+    }
+    .hero__grid {
+      display: grid;
+      grid-template-columns: 1.3fr 0.9fr;
+      gap: 2rem;
+      align-items: start;
+    }
+    .hero__content h1 {
+      font-family: var(--serif);
+      font-weight: 800;
+      line-height: 1.12;
+      font-size: clamp(2.2rem, 3vw + 1.2rem, 3.45rem);
+      margin: 0.5rem 0 0.8rem;
+    }
+    .eyebrow {
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: 0.78rem;
+      margin: 0;
+    }
+    .lead {
+      font-size: 1.08rem;
+      color: var(--muted);
+      max-width: 60ch;
+    }
+    .accent { color: var(--uh-red); }
+
+    .hero__highlights {
+      list-style: none;
+      padding: 0;
+      margin: 1.2rem 0 1.5rem;
+      display: grid;
+      gap: 0.5rem;
+    }
+    .hero__highlights i { color: var(--uh-red); margin-right: 0.4rem; }
+    .hero__actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin: 1rem 0 1.2rem; }
+
+    .social {
+      display: flex;
+      gap: 0.65rem;
+    }
+    .social a {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: var(--panel);
+      border: 1px solid var(--border);
+    }
+    .social a:hover { border-color: rgba(200,16,46,0.35); }
+    .social i { font-size: 1.2rem; }
+
+    .hero__card {
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, var(--panel), transparent 220%);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      padding: 1rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero__card::before {
+      content: "";
+      position: absolute;
+      inset: -120px -140px auto auto;
+      width: 260px;
+      height: 260px;
+      background: radial-gradient(circle at center, rgba(200,16,46,0.28), transparent 70%);
+      filter: blur(2px);
+      pointer-events: none;
+    }
+
+    .profile {
+      display: grid;
+      grid-template-columns: 72px 1fr;
+      gap: 0.9rem;
+      align-items: center;
+    }
+    .profile__img {
+      width: 72px;
+      height: 72px;
+      border-radius: 18px;
+      object-fit: cover;
+      border: 1px solid rgba(255,255,255,0.16);
+    }
+    .profile__name { margin: 0; font-size: 1.05rem; }
+    .profile__role { margin: 0.25rem 0 0.6rem; color: var(--muted); font-size: 0.95rem; }
+    .profile__chips { display: flex; flex-wrap: wrap; gap: 0.45rem; }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.33rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.03);
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.6rem;
+      margin-top: 1rem;
+    }
+    .stat {
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.03);
+      border-radius: 14px;
+      padding: 0.7rem;
+    }
+    .stat__num {
+      font-weight: 900;
+      font-size: 1.1rem;
+      letter-spacing: 0.2px;
+    }
+    .stat__label { color: var(--muted); font-size: 0.82rem; margin-top: 0.2rem; }
+
+    /* Sections */
+    .section { padding: 3.25rem 0; }
+    .section__heading {
+      display: grid;
+      gap: 0.25rem;
+      margin-bottom: 1.25rem;
+    }
+    .section__heading h2 {
+      margin: 0;
+      font-size: 1.75rem;
+      letter-spacing: 0.2px;
+    }
+    .muted { color: var(--muted); }
+    .small { font-size: 0.9rem; color: var(--faint); }
+
+    /* Cards / Layout */
+    .card {
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, var(--panel), transparent 220%);
+      border: 1px solid var(--border);
+      padding: 1.15rem;
+      box-shadow: var(--shadow);
+    }
+
+    .about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    .about__panel {
+      border-radius: var(--radius);
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      padding: 1.2rem;
+    }
+    .about__panel h3 { margin: 0 0 0.5rem; }
+    .about__tags { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-top: 1rem; }
+    .tag {
+      padding: 0.35rem 0.65rem;
+      border-radius: 999px;
+      border: 1px solid rgba(200,16,46,0.22);
+      background: rgba(200,16,46,0.10);
+      color: var(--text);
+      font-size: 0.85rem;
+    }
+
+    .bullets {
+      padding-left: 1.15rem;
+      margin: 0.7rem 0 0;
+      display: grid;
+      gap: 0.55rem;
+    }
+    .bullets i { color: var(--uh-red); margin-right: 0.35rem; }
+
+    .timeline {
+      position: relative;
+      margin-top: 0.5rem;
+    }
+    .timeline__item {
+      display: grid;
+      grid-template-columns: 22px 1fr;
+      gap: 0.9rem;
+      align-items: start;
+    }
+    .timeline__dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 999px;
+      margin-top: 1.05rem;
+      background: var(--uh-red);
+      box-shadow: 0 0 0 6px rgba(200,16,46,0.15);
+    }
+    .timeline__top {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+    }
+    .timeline__summary { margin-top: 0.7rem; }
+
+    .pill {
+      display: inline-flex;
+      padding: 0.3rem 0.55rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.03);
+      color: var(--muted);
+      font-size: 0.82rem;
+      margin-left: 0.35rem;
+    }
+    .pill--accent {
+      border-color: rgba(200,16,46,0.28);
+      background: rgba(200,16,46,0.12);
+      color: var(--text);
+    }
+
+    .grid {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(3, 1fr);
+    }
+    .grid--skills { grid-template-columns: repeat(3, 1fr); }
+
+    .project__top {
+      display: flex;
+      justify-content: space-between;
+      align-items: start;
+      gap: 0.7rem;
+    }
+    .stack { display: flex; flex-wrap: wrap; gap: 0.45rem; margin: 0.9rem 0 0.2rem; }
+    .card__actions { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-top: 0.9rem; }
+
+    .skill-list {
+      list-style: none;
+      padding: 0;
+      margin: 0.6rem 0 0;
+      display: grid;
+      gap: 0.75rem;
+    }
+    .skill-list li {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding-bottom: 0.65rem;
+      border-bottom: 1px dashed var(--border);
+    }
+    .skill-list li:last-child { border-bottom: none; padding-bottom: 0; }
+
+    /* Contact */
+    .contact {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 1rem;
+    }
+    .contact__rows { margin-top: 1rem; display: grid; gap: 0.65rem; }
+    .contact__row {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      padding: 0.75rem 0.85rem;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.03);
+    }
+    .contact__row i { color: var(--uh-red); font-size: 1.2rem; }
+
+    .form__row { display: grid; gap: 0.35rem; margin-bottom: 0.85rem; }
+    label { font-size: 0.9rem; color: var(--muted); }
+    input, textarea {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      color: var(--text);
+      border-radius: 14px;
+      padding: 0.85rem 0.9rem;
+      font-family: inherit;
+    }
+    input:focus, textarea:focus { outline: none; box-shadow: var(--focus); border-color: rgba(200,16,46,0.35); }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      border-radius: 999px;
+      padding: 0.78rem 1.05rem;
+      border: 1px solid transparent;
+      font-weight: 650;
+      letter-spacing: 0.15px;
+      cursor: pointer;
+    }
+    .btn--primary {
+      background: linear-gradient(180deg, rgba(200,16,46,1), rgba(150,12,34,1));
+      color: var(--uh-white);
+      box-shadow: 0 10px 28px rgba(200,16,46,0.22);
+    }
+    .btn--primary:hover { transform: translateY(-1px); }
+    .btn--secondary {
+      background: rgba(255,255,255,0.06);
+      border-color: var(--border);
+      color: var(--text);
+    }
+    .btn--ghost {
+      background: transparent;
+      border-color: var(--border);
+      color: var(--text);
+    }
+    .btn--small { padding: 0.6rem 0.85rem; border-radius: 14px; }
+    .btn:focus-visible { outline: none; box-shadow: var(--focus); }
+
+    /* Footer */
+    .footer {
+      border-top: 1px solid var(--border);
+      padding: 1.35rem 0;
+    }
+    .footer__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .back-to-top {
+      color: var(--muted);
+      padding: 0.55rem 0.8rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.03);
+    }
+
+    /* Decorative background */
+    .hero__bg {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(700px 380px at 55% 0%, rgba(200,16,46,0.12), transparent 55%),
+        radial-gradient(550px 320px at 85% 35%, rgba(84,88,90,0.18), transparent 60%);
+      opacity: 0.9;
+    }
+
+    /* Responsive */
+    @media (max-width: 980px) {
+      .hero__grid { grid-template-columns: 1fr; }
+      .stats { grid-template-columns: 1fr; }
+      .grid { grid-template-columns: 1fr; }
+      .grid--skills { grid-template-columns: 1fr; }
+      .about { grid-template-columns: 1fr; }
+      .contact { grid-template-columns: 1fr; }
+
+      .nav-toggle { display: inline-flex; align-items: center; gap: 0.4rem; }
+
+      .nav {
+        position: fixed;
+        top: 70px;
+        right: 16px;
+        left: 16px;
+        max-width: calc(var(--max));
+        margin: 0 auto;
+        padding: 0.85rem;
+        border-radius: var(--radius);
+        background: rgba(11,15,20,0.92);
+        border: 1px solid var(--border);
+        box-shadow: var(--shadow);
+
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+      }
+      body.theme-light .nav { background: rgba(247,247,248,0.95); }
+      .nav.is-open { display: flex; }
+      .nav a, .theme-toggle { width: 100%; justify-content: center; }
+    }
+  </style>
+</head>
+
+<body class="theme-dark">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- Header -->
+  <header class="header" id="top">
+    <div class="container header__inner">
+      <a href="#top" class="logo" aria-label="Home">
+        <span class="logo__mark" aria-hidden="true"></span>
+        <span class="logo__text">Aaron Chee</span>
+      </a>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Open navigation" aria-expanded="false" aria-controls="navMenu">
+        <i class="bx bx-menu"></i>
+      </button>
+
+      <nav class="nav" id="navMenu" aria-label="Primary navigation">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact" class="nav__cta">Contact</a>
+
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme" title="Toggle theme">
+          <i class="bx bx-moon"></i>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container hero__grid">
+        <div class="hero__content">
+          <p class="eyebrow">University of Houston • Data Engineering • Analytics</p>
+          <h1>
+            I build <span class="accent">data products</span><br />
+            that help teams make confident decisions.
+          </h1>
+
+          <p class="lead">
+            I’m <strong>Aaron Chee</strong>, a <span class="typed" aria-label="Roles"></span>
+            focused on scalable reporting, governed metrics, and modern BI.
+          </p>
+
+          <ul class="hero__highlights" aria-label="Key highlights">
+            <li><i class="bx bx-check-circle"></i> BigQuery SQL • LookML • Looker dashboards</li>
+            <li><i class="bx bx-check-circle"></i> KPI standardization • data lineage • stakeholder alignment</li>
+            <li><i class="bx bx-check-circle"></i> Automation & scheduling for executive reporting</li>
+          </ul>
+
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="#projects">
+              View Projects <i class="bx bx-right-arrow-alt"></i>
+            </a>
+            <a class="btn btn--ghost" href="Aaron-Chee-Resume.pdf" download>
+              Download Resume <i class="bx bx-download"></i>
+            </a>
+          </div>
+
+          <div class="social" aria-label="Social links">
+            <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+              <i class="bx bxl-linkedin"></i>
+            </a>
+            <a href="https://github.com/" target="_blank" rel="noreferrer" aria-label="GitHub">
+              <i class="bx bxl-github"></i>
+            </a>
+            <a href="mailto:you@email.com" aria-label="Email">
+              <i class="bx bx-envelope"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="hero__card" role="complementary" aria-label="Quick profile">
+          <div class="profile">
+            <img class="profile__img" src="profilePicturewWhiteBackground4.png" alt="Portrait of Aaron Chee" />
+            <div class="profile__meta">
+              <h2 class="profile__name">Aaron Chee</h2>
+              <p class="profile__role">Data Engineer • Analytics Engineer</p>
+              <div class="profile__chips" aria-label="Core technologies">
+                <span class="chip">BigQuery</span>
+                <span class="chip">Looker</span>
+                <span class="chip">SQL</span>
+                <span class="chip">Kafka</span>
+              </div>
             </div>
+          </div>
 
-            <a href="#" class="btn btn-box">More about me</a>
+          <div class="stats" aria-label="Impact summary">
+            <div class="stat">
+              <div class="stat__num">12</div>
+              <div class="stat__label">Looker dashboards shipped</div>
+            </div>
+            <div class="stat">
+              <div class="stat__num">5</div>
+              <div class="stat__label">Sources unified into one model</div>
+            </div>
+            <div class="stat">
+              <div class="stat__num">↑</div>
+              <div class="stat__label">Faster exec reporting cadence</div>
+            </div>
+          </div>
+
+          <div style="margin-top: 1rem;">
+            <a class="btn btn--secondary btn--small" href="#contact">
+              Let’s connect <i class="bx bx-message-rounded-dots"></i>
+            </a>
+          </div>
         </div>
-        <span class="home-imgHover"></span>
-        
+      </div>
+
+      <div class="hero__bg" aria-hidden="true"></div>
     </section>
 
-    <section class="about" id="about">
-        <div class="about-img">
-            <img src="profilePicturewWhiteBackground4.png" alt="">
+    <!-- About -->
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section__heading">
+          <h2>About</h2>
+          <p class="muted">A quick snapshot of how I approach data engineering.</p>
         </div>
-        <div class="about-text">
-            <h2>About<span>Me</span></h2>
-            <h4>Data Engineer!</h4>
-            <p>I bridge the gap between raw numbers and real-world impact, turning intricate data puzzles into solutions that propel innovation. In college, I developed a passion of solving problems through data. I always start with what is given to me, and I begin to paint a picture of what the data is trying to tell me. From a certain perspective, it could be similar to storytelling. I take data and make a story out of it. Towards the end of my college career, I immediately knew that my skills in data analysis could help a company make decisions. Therefore, I pursued a degree in Management Information Systems. This particular discipline allows one to connect their technical expertise with business acumen </p>
-            <a href="#" class="btn btn-box">More about me</a>
-        </div>
-    </section>
 
-    <section class="projects" id="about">
-        <div class="about-img">
-            <img src="" alt="">
-        </div>
-        <div class="about-text">
-            <h2>Experience</h2>
-            <img style="border-radius: 20px; height: 45%; width: 50%;" src="https://www.brightspeed.com/content/dam/brightspeed-brspd/images/logos/brightspeed-logo-og-image.jpg">
-            <h4>Brightspeed</h4>
-            <p>Data Engineer: Build and design reports that will determine the direction of the business
+        <div class="about">
+          <div class="about__panel">
+            <h3>What I do</h3>
+            <p>
+              I bridge the gap between raw numbers and real-world impact—turning complex datasets into reliable,
+              business-ready metrics, models, and dashboards. I focus on clarity, governance, and stakeholder trust
+              so teams can move faster with fewer debates over “whose number is right.”
             </p>
-            <ul>
-                <li>Consolidated fragmented call center metadata by authoring and optimizing BigQuery SQL queries to pull agent performance, volume, and customer satisfaction metrics from five disparate tables.</li>
-                <li>Automated end-to-end call center metrics ingestion and executive reporting by scheduling BigQuery ETL pipelines and orchestrating Looker's built in scheduler.</li>
-                <li>Designed and deployed 12 interactive Looker dashboards visualizing key call center KPIs by building robust LookML models and Explores.</li>
-                <li>Standardized call center metric definitions and data lineage by constructing a centralized LookML framework and maintaining a metadata catalog in BigQuery</li>
+            <p>
+              My background in <strong>Management Information Systems</strong> helps me translate business goals into
+              technical delivery: data modeling, warehouse querying, visualization, and automation.
+            </p>
+            <div class="about__tags" aria-label="Focus areas">
+              <span class="tag">Metric Definitions</span>
+              <span class="tag">Data Lineage</span>
+              <span class="tag">BI Enablement</span>
+              <span class="tag">ETL Scheduling</span>
+            </div>
+          </div>
+
+          <div class="about__panel">
+            <h3>What I’m looking for</h3>
+            <p>
+              Roles where I can build governed metrics, scalable reporting layers, and analytics products that deliver
+              measurable impact—especially in environments with multiple data sources and high stakeholder needs.
+            </p>
+            <ul class="bullets">
+              <li><i class="bx bx-target-lock"></i> Analytics Engineering / Data Engineering</li>
+              <li><i class="bx bx-group"></i> Cross-functional work with Ops, Product, Finance</li>
+              <li><i class="bx bx-line-chart"></i> KPI design, dashboards, and data products</li>
             </ul>
-            <h2>Projects</h2>
-            <h4>Social Media API</h4>
-            <p>For 7 months, I worked on creating a Social Media API. The objective was to deploy a fully functional API that can edit, add, and delete messages.</p>
-
-            <h4>Database Creation</h4>
-            <p>Objective: Create a database where users can search and filter big data</p>
-            <a href="#" class="btn btn-box">Explore</a>
-        </div>
-    </section>
-
-    <section id="services" class="services">
-        <div class="container">
-            <h1 class="sub-title">My <span>Services</span></h1>
-            <div class="services-list">
-                <div>
-                    <i class="bx bxl-google"></i>
-                    <h2>Google BigQuery</h2>
-                    <p>A data platform which allows the user to query databases inside of data warehouses to retrieve and analyze data without the need for a business intelligence tool </p>
-                    <a href="#" class="read">Learn More</a>
-                </div>
-                <div>
-                    <i class="bx bxs-report"></i>
-                    <h2>Google Looker Enterprise</h2>
-                    <p>Used for robust data visualization. A robust business intelligence tool designed to bring data and insights for business users.</p>
-                    <a href="#" class="read">Learn More</a>
-                </div>
-                <div>
-                    <i class="bx bxs-time-five"></i>
-                    <h2>Kafka</h2>
-                    <p>Data pipeline used to collect real time data. Used the pipeline to ingest realtime data. Helped clients to achieve milestones in realtime </p>
-                    <a href="#" class="read">Learn More</a>
-                </div>
-
+            <div style="margin-top: 1rem;">
+              <a class="btn btn--ghost btn--small" href="#experience">See experience <i class="bx bx-right-arrow-alt"></i></a>
             </div>
+          </div>
         </div>
+      </div>
     </section>
 
+    <!-- Experience -->
+    <section class="section" id="experience">
+      <div class="container">
+        <div class="section__heading">
+          <h2>Experience</h2>
+          <p class="muted">Recent roles and the outcomes delivered.</p>
+        </div>
 
-    <h1 class="sub-title">My <span>Skills</span></h1>
-    <section>
-        <div class="container1" id="Skills">
-            <h1 class="heading1">Technical Skills</h1>
-            <div class="Technical-bars">
-                <div class="bar"><i style="color: #c95d2e"class="bx bxl-html5"></i>
-                    <div class="info">
-                        <span>HTML</span>
-                    </div>
-                    <div class="progress-line">
-                        <div class="html"><span></span></div>
-                    </div>
+        <div class="timeline">
+          <article class="timeline__item">
+            <div class="timeline__dot" aria-hidden="true"></div>
+
+            <div class="card timeline__content">
+              <div class="timeline__top">
+                <div>
+                  <h3 style="margin:0;">Data Engineer</h3>
+                  <p class="muted" style="margin:0.25rem 0 0;">Brightspeed</p>
                 </div>
-                <div class="bar"><i style="color: #147bbc"class="bx bxl-css3"></i>
-                    <div class="info">
-                        <span>CSS</span>
-                    </div>
-                    <div class="progress-line">
-                        <div class="css3"><span></span></div>
-                    </div>
+
+                <div class="timeline__meta">
+                  <span class="pill">BigQuery</span>
+                  <span class="pill">Looker</span>
+                  <span class="pill">LookML</span>
                 </div>
-                <div class="bar"><i class="bx bxl-java"></i>
-                    <div class="info">
-                        <span>JAVA</span>
-                    </div>
-                    <div class="progress-line">
-                        <div class="java"><span></span></div>
-                    </div>
-                </div>
-                <div class="bar"><i style="color: #b0bc1e" class="bx bxs-report"></i>
-                    <div class="info">
-                        <span>Kafka</span>
-                    </div>
-                    <div class="progress-line">
-                        <div class="javascript"><span></span></div>
-                    </div>
-                </div>
-                <div class="bar"><i style="color: #c09" class="bx bx-data"></i>
-                    <div class="info">
-                        <span>SQL</span>
-                    </div>
-                    <div class="progress-line">
-                        <div class="sql"><span></span></div>
-                    </div>
-                </div>
+              </div>
+
+              <p class="timeline__summary muted">
+                Built and standardized call center analytics: unified sources, automated reporting,
+                and delivered executive-ready dashboards for KPIs and operational visibility.
+              </p>
+
+              <ul class="bullets">
+                <li>
+                  Consolidated fragmented call center metadata by authoring optimized <strong>BigQuery SQL</strong>
+                  to pull performance, volume, and CSAT metrics across <strong>five</strong> disparate tables.
+                </li>
+                <li>
+                  Automated end-to-end ingestion and executive reporting by scheduling BigQuery ETL pipelines and
+                  orchestrating delivery through Looker scheduling.
+                </li>
+                <li>
+                  Designed and deployed <strong>12</strong> interactive Looker dashboards by building robust
+                  LookML models and Explores.
+                </li>
+                <li>
+                  Standardized metric definitions and lineage with a centralized LookML framework and a metadata
+                  catalog in BigQuery.
+                </li>
+              </ul>
             </div>
+          </article>
         </div>
+      </div>
     </section>
 
+    <!-- Projects -->
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section__heading">
+          <h2>Projects</h2>
+          <p class="muted">Selected work—focused on impact, clarity, and craftsmanship.</p>
+        </div>
 
-    <section>
-        <div class="container1" id="Skills">
-            <h1 class="heading1">Professional Skills</h1>
-            <div class="Technical-bars">
-                <div class="bar"><i style="color: #c95d2e"class="bx bx-support"></i>
-                    <div class="info">
-                        <span>Communications</span>
-                    </div>
-                    <div class="progress-line">
-                        <div class="html"><span></span></div>
-                    </div>
-                </div>
-                <div class="bar"><i style="color: #147bbc"class="bx bxs-time"></i>
-                    <div class="info">
-                        <span>Time-Management</span>
-                    </div>
-                    <div class="progress-line">
-                        <div class="css3"><span></span></div>
-                    </div>
-                </div>
-                <div class="bar"><i class="bx bxl-java"></i>
-                    <div class="info">
-                        <span>Data Analysis</span>
-                    </div>
-                    <div class="progress-line">
-                        <div class="java"><span></span></div>
-                    </div>
-                </div>
-                <div class="bar"><i style="color: #b0bc1e" class="bx bxl-javascript"></i>
-                    <div class="info">
-                        <span>Presentations</span>
-                    </div>
-                    <div class="progress-line">
-                        <div class="javascript"><span></span></div>
-                    </div>
-                </div>
-                <div class="bar"><i style="color: #c09" class="bx bxl-google-cloud"></i>
-                    <div class="info">
-                        <span>Google Cloud Platform</span>
-                    </div>
-                    <div class="progress-line">
-                        <div class="sql"><span></span></div>
-                    </div>
-                </div>
+        <div class="grid">
+          <article class="card">
+            <div class="project__top">
+              <h3 style="margin:0;">Social Media API</h3>
+              <span class="pill pill--accent">Backend</span>
             </div>
+            <p class="muted">
+              Designed a CRUD API for posts/messages with authentication, validation, and clean REST conventions.
+            </p>
+            <div class="stack" aria-label="Technology stack">
+              <span class="chip">Node.js</span>
+              <span class="chip">Express</span>
+              <span class="chip">SQL</span>
+              <span class="chip">JWT</span>
+            </div>
+            <div class="card__actions">
+              <a class="btn btn--ghost btn--small" href="#" aria-label="Live demo">
+                Live Demo <i class="bx bx-link-external"></i>
+              </a>
+              <a class="btn btn--ghost btn--small" href="#" aria-label="Source code">
+                Source <i class="bx bxl-github"></i>
+              </a>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="project__top">
+              <h3 style="margin:0;">Searchable Database (Big Data)</h3>
+              <span class="pill pill--accent">Data</span>
+            </div>
+            <p class="muted">
+              Built a database schema and query layer enabling users to filter large datasets efficiently.
+            </p>
+            <div class="stack" aria-label="Technology stack">
+              <span class="chip">SQL</span>
+              <span class="chip">Indexing</span>
+              <span class="chip">ETL</span>
+              <span class="chip">Data Modeling</span>
+            </div>
+            <div class="card__actions">
+              <a class="btn btn--ghost btn--small" href="#" aria-label="Case study">
+                Case Study <i class="bx bx-file"></i>
+              </a>
+              <a class="btn btn--ghost btn--small" href="#" aria-label="Repository">
+                Repo <i class="bx bxl-github"></i>
+              </a>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="project__top">
+              <h3 style="margin:0;">Call Center KPI Model</h3>
+              <span class="pill pill--accent">Analytics</span>
+            </div>
+            <p class="muted">
+              A governed metrics layer that standardizes definitions and powers consistent dashboards.
+            </p>
+            <div class="stack" aria-label="Technology stack">
+              <span class="chip">LookML</span>
+              <span class="chip">BigQuery</span>
+              <span class="chip">Data Lineage</span>
+              <span class="chip">Governance</span>
+            </div>
+            <div class="card__actions">
+              <a class="btn btn--ghost btn--small" href="#contact">
+                Ask for details <i class="bx bx-message-rounded"></i>
+              </a>
+            </div>
+          </article>
         </div>
+      </div>
     </section>
-    <script type="text/javascript">
 
-var typed = new Typed(".text",
-{
-    strings: ["Database Administrator", "Software Engineer", "Business Intelligence Developer","Data Engineer", "Data Analyst"],
-    typeSpeed: 25,
-    backSpeed: 50,
-    backDelay: 1500,
-    loop: true
+    <!-- Skills -->
+    <section class="section" id="skills">
+      <div class="container">
+        <div class="section__heading">
+          <h2>Skills</h2>
+          <p class="muted">Role-aligned skills organized the way hiring teams evaluate.</p>
+        </div>
 
-});
+        <div class="grid grid--skills">
+          <div class="card">
+            <h3 style="margin:0;">Data & Analytics</h3>
+            <ul class="skill-list">
+              <li><span>SQL (BigQuery)</span><span class="muted">Advanced</span></li>
+              <li><span>Data Modeling</span><span class="muted">Strong</span></li>
+              <li><span>Metric Design & Governance</span><span class="muted">Strong</span></li>
+              <li><span>Looker / LookML</span><span class="muted">Strong</span></li>
+            </ul>
+          </div>
 
+          <div class="card">
+            <h3 style="margin:0;">Engineering</h3>
+            <ul class="skill-list">
+              <li><span>ETL Scheduling / Automation</span><span class="muted">Strong</span></li>
+              <li><span>Kafka (concepts & pipelines)</span><span class="muted">Working</span></li>
+              <li><span>API Fundamentals</span><span class="muted">Working</span></li>
+              <li><span>Version Control</span><span class="muted">Working</span></li>
+            </ul>
+          </div>
 
-    </script>
-    
-    </body>
-    
+          <div class="card">
+            <h3 style="margin:0;">Professional</h3>
+            <ul class="skill-list">
+              <li><span>Stakeholder Communication</span><span class="muted">Strong</span></li>
+              <li><span>Documentation & Enablement</span><span class="muted">Strong</span></li>
+              <li><span>Presentation / Exec Readouts</span><span class="muted">Strong</span></li>
+              <li><span>Time Management</span><span class="muted">Strong</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section class="section" id="services">
+      <div class="container">
+        <div class="section__heading">
+          <h2>What I can help with</h2>
+          <p class="muted">Practical services aligned with data roles and business outcomes.</p>
+        </div>
+
+        <div class="grid">
+          <article class="card">
+            <h3 style="margin:0;"><i class="bx bx-data"></i> Warehouse Queries & Modeling</h3>
+            <p class="muted">Efficient SQL, curated datasets, and modeling patterns that scale and stay understandable.</p>
+          </article>
+          <article class="card">
+            <h3 style="margin:0;"><i class="bx bx-bar-chart-alt-2"></i> BI Dashboards & LookML</h3>
+            <p class="muted">Executive-ready dashboards with consistent KPIs, governed metrics, and clean UX.</p>
+          </article>
+          <article class="card">
+            <h3 style="margin:0;"><i class="bx bx-cog"></i> Automation & Reporting Pipelines</h3>
+            <p class="muted">Scheduled refreshes, reliable delivery, and automated reporting that reduces manual effort.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="section__heading">
+          <h2>Contact</h2>
+          <p class="muted">The fastest way to reach me is email. I typically respond within 24–48 hours.</p>
+        </div>
+
+        <div class="contact">
+          <div class="card">
+            <h3 style="margin:0;">Let’s talk</h3>
+            <p class="muted">
+              Interested in analytics engineering, data engineering, or BI roles? I’d love to hear about your team’s goals.
+            </p>
+
+            <div class="contact__rows">
+              <a class="contact__row" href="mailto:you@email.com">
+                <i class="bx bx-envelope"></i><span>you@email.com</span>
+              </a>
+              <a class="contact__row" href="tel:+10000000000">
+                <i class="bx bx-phone"></i><span>+1 (000) 000-0000</span>
+              </a>
+              <a class="contact__row" href="https://www.linkedin.com/" target="_blank" rel="noreferrer">
+                <i class="bx bxl-linkedin"></i><span>LinkedIn</span>
+              </a>
+              <a class="contact__row" href="https://github.com/" target="_blank" rel="noreferrer">
+                <i class="bx bxl-github"></i><span>GitHub</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- NOTE: This form does not send anywhere by default -->
+          <form class="card" action="#" method="post" onsubmit="return false;">
+            <div class="form__row">
+              <label for="name">Name</label>
+              <input id="name" name="name" type="text" placeholder="Your name" autocomplete="name" required />
+            </div>
+            <div class="form__row">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" placeholder="you@company.com" autocomplete="email" required />
+            </div>
+            <div class="form__row">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="5" placeholder="Tell me what you're hiring for…" required></textarea>
+            </div>
+            <button class="btn btn--primary" type="submit">
+              Send message <i class="bx bx-send"></i>
+            </button>
+            <p class="muted small" style="margin-top:0.8rem;">
+              If you want this form to actually send emails, I can wire it to Formspree, Netlify Forms, or a simple backend.
+            </p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p class="muted">© <span id="year"></span> Aaron Chee. Built with care.</p>
+      <a class="back-to-top" href="#top">Back to top <i class="bx bx-up-arrow-alt"></i></a>
+    </div>
+  </footer>
+
+  <script>
+    /* ==========================
+       Combined JS
+       - Typed.js init (optional)
+       - Footer year
+       - Mobile nav toggle + close-on-click/outside/Esc
+       - Theme toggle (dark default) + persistence
+       ========================== */
+
+    (() => {
+      "use strict";
+
+      const $ = (sel, root = document) => root.querySelector(sel);
+      const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
+
+      // Footer year
+      const yearEl = $("#year");
+      if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+      // Mobile nav
+      const navToggle = $("#navToggle");
+      const navMenu = $("#navMenu");
+
+      if (navToggle && navMenu) {
+        const setExpanded = (isOpen) => {
+          navToggle.setAttribute("aria-expanded", String(isOpen));
+          navToggle.setAttribute("aria-label", isOpen ? "Close navigation" : "Open navigation");
+        };
+
+        navToggle.addEventListener("click", () => {
+          const isOpen = navMenu.classList.toggle("is-open");
+          setExpanded(isOpen);
+        });
+
+        // Close menu when clicking a link
+        $$("a", navMenu).forEach((a) => {
+          a.addEventListener("click", () => {
+            navMenu.classList.remove("is-open");
+            setExpanded(false);
+          });
+        });
+
+        // Close if click outside
+        document.addEventListener("click", (e) => {
+          const clickedInside = navMenu.contains(e.target) || navToggle.contains(e.target);
+          if (!clickedInside && navMenu.classList.contains("is-open")) {
+            navMenu.classList.remove("is-open");
+            setExpanded(false);
+          }
+        });
+
+        // Close on Escape
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape" && navMenu.classList.contains("is-open")) {
+            navMenu.classList.remove("is-open");
+            setExpanded(false);
+            navToggle.focus();
+          }
+        });
+      }
+
+      // Theme toggle (dark default)
+      const themeToggle = $("#themeToggle");
+      const body = document.body;
+
+      const applyTheme = (theme) => {
+        body.classList.toggle("theme-light", theme === "light");
+        const icon = themeToggle?.querySelector("i");
+        if (icon) icon.className = theme === "light" ? "bx bx-sun" : "bx bx-moon";
+      };
+
+      const savedTheme = localStorage.getItem("theme");
+      if (savedTheme === "light") applyTheme("light");
+      else applyTheme("dark");
+
+      themeToggle?.addEventListener("click", () => {
+        const next = body.classList.contains("theme-light") ? "dark" : "light";
+        localStorage.setItem("theme", next);
+        applyTheme(next);
+      });
+
+      // Typed.js (optional)
+      const typedTarget = $(".typed");
+      if (window.Typed && typedTarget && !typedTarget.dataset.typedInit) {
+        typedTarget.dataset.typedInit = "true";
+        new Typed(".typed", {
+          strings: ["Data Engineer.", "Analytics Engineer.", "BI Developer.", "SQL & LookML Builder."],
+          typeSpeed: 55,
+          backSpeed: 28,
+          backDelay: 1400,
+          loop: true,
+          smartBackspace: true
+        });
+      }
+    })();
+  </script>
+</body>
 </html>
