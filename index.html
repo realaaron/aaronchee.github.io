@@ -407,6 +407,148 @@
     }
     .grid--skills { grid-template-columns: repeat(3, 1fr); }
 
+    /* ==========================
+   Skills Donut Charts
+   ========================== */
+.skills-charts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.skills-card {
+  border-radius: var(--radius);
+  background: linear-gradient(180deg, var(--panel), transparent 220%);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  padding: 1.15rem;
+  overflow: hidden;
+}
+
+.skills-card__top {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.8rem;
+}
+
+.skills-card__top h3 {
+  margin: 0;
+}
+
+.donut-wrap {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 1rem;
+  align-items: center;
+}
+
+.donut {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  position: relative;
+  background: conic-gradient(from 270deg, rgba(255,255,255,0.12), rgba(255,255,255,0.06));
+  border: 1px solid var(--border);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+  transform: translateZ(0);
+}
+
+.donut::after {
+  /* inner hole */
+  content: "";
+  position: absolute;
+  inset: 14px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 20%, rgba(255,255,255,0.08), rgba(255,255,255,0.02)),
+              var(--bg);
+  border: 1px solid var(--border);
+}
+
+.donut-center {
+  position: absolute;
+  inset: 14px;
+  display: grid;
+  place-items: center;
+  z-index: 1;
+  text-align: center;
+  padding: 0.65rem;
+}
+
+.donut-center strong {
+  font-size: 1rem;
+  letter-spacing: 0.2px;
+}
+
+.donut-center span {
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+.legend {
+  display: grid;
+  gap: 0.55rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.legend li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding-bottom: 0.55rem;
+  border-bottom: 1px dashed var(--border);
+}
+
+.legend li:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.legend-left {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  min-width: 0;
+}
+
+.swatch {
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+  flex: 0 0 auto;
+}
+
+.legend-name {
+  color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 22ch;
+}
+
+.legend-val {
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Responsive */
+@media (max-width: 980px) {
+  .skills-charts {
+    grid-template-columns: 1fr;
+  }
+  .donut-wrap {
+    grid-template-columns: 120px 1fr;
+  }
+  .donut {
+    width: 120px;
+    height: 120px;
+  }
+}
+
     .project__top {
       display: flex;
       justify-content: space-between;
@@ -859,45 +1001,20 @@
 
     <!-- Skills -->
     <section class="section" id="skills">
-      <div class="container">
-        <div class="section__heading">
-          <h2>Skills</h2>
-          <p class="muted">Role-aligned skills organized the way hiring teams evaluate.</p>
-        </div>
+  <div class="container">
+    <div class="section__heading">
+      <h2>Skills</h2>
+      <p class="muted">A quick visual breakdown of my strongest skill areas.</p>
+    </div>
 
-        <div class="grid grid--skills">
-          <div class="card">
-            <h3 style="margin:0;">Data & Analytics</h3>
-            <ul class="skill-list">
-              <li><span>SQL (BigQuery)</span><span class="muted">Advanced</span></li>
-              <li><span>Data Modeling</span><span class="muted">Strong</span></li>
-              <li><span>Metric Design & Governance</span><span class="muted">Strong</span></li>
-              <li><span>Looker / LookML</span><span class="muted">Strong</span></li>
-            </ul>
-          </div>
+    <!-- Donut charts render here -->
+    <div class="skills-charts" id="skillsCharts" aria-label="Skill donut charts"></div>
 
-          <div class="card">
-            <h3 style="margin:0;">Engineering</h3>
-            <ul class="skill-list">
-              <li><span>ETL Scheduling / Automation</span><span class="muted">Strong</span></li>
-              <li><span>Kafka (concepts & pipelines)</span><span class="muted">Working</span></li>
-              <li><span>API Fundamentals</span><span class="muted">Working</span></li>
-              <li><span>Version Control</span><span class="muted">Working</span></li>
-            </ul>
-          </div>
-
-          <div class="card">
-            <h3 style="margin:0;">Professional</h3>
-            <ul class="skill-list">
-              <li><span>Stakeholder Communication</span><span class="muted">Strong</span></li>
-              <li><span>Documentation & Enablement</span><span class="muted">Strong</span></li>
-              <li><span>Presentation / Exec Readouts</span><span class="muted">Strong</span></li>
-              <li><span>Time Management</span><span class="muted">Strong</span></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
+    <p class="muted small" style="margin-top: 1rem;">
+      Tip: You can edit skill names/weights in the <code>skillsData</code> array inside the script.
+    </p>
+  </div>
+</section>
 
     <!-- Services -->
     <section class="section" id="services">
@@ -1083,6 +1200,132 @@
         });
       }
     })();
+
+
+    /* ==========================
+   Skills Donut Charts (Skills as categories/slices)
+   ========================== */
+const skillsData = [
+  {
+    title: "Data & Analytics",
+    subtitle: "Core data stack",
+    centerLabel: "Data",
+    items: [
+      { name: "SQL (BigQuery)", value: 30, color: "#C8102E" },
+      { name: "Looker / LookML", value: 25, color: "#960C22" },
+      { name: "Data Modeling", value: 20, color: "#54585A" },
+      { name: "KPI Governance", value: 15, color: "#888B8D" },
+      { name: "Dashboards", value: 10, color: "#F6BE00" }
+    ]
+  },
+  {
+    title: "Engineering",
+    subtitle: "Building & automation",
+    centerLabel: "Eng",
+    items: [
+      { name: "ETL Scheduling", value: 30, color: "#C8102E" },
+      { name: "Automation", value: 25, color: "#54585A" },
+      { name: "Kafka (Concepts)", value: 20, color: "#888B8D" },
+      { name: "APIs", value: 15, color: "#00B388" },
+      { name: "Version Control", value: 10, color: "#F6BE00" }
+    ]
+  },
+  {
+    title: "Professional",
+    subtitle: "How I work",
+    centerLabel: "Pro",
+    items: [
+      { name: "Stakeholder Comms", value: 30, color: "#C8102E" },
+      { name: "Documentation", value: 25, color: "#54585A" },
+      { name: "Presentations", value: 20, color: "#888B8D" },
+      { name: "Time Management", value: 15, color: "#F6BE00" },
+      { name: "Problem Solving", value: 10, color: "#00B388" }
+    ]
+  }
+];
+
+function normalizeItems(items) {
+  const total = items.reduce((sum, it) => sum + it.value, 0) || 1;
+  return items.map(it => ({
+    ...it,
+    pct: (it.value / total) * 100
+  }));
+}
+
+function buildConicGradient(items) {
+  let start = 0;
+  const stops = items.map(it => {
+    const end = start + it.pct;
+    const seg = `${it.color} ${start.toFixed(2)}% ${end.toFixed(2)}%`;
+    start = end;
+    return seg;
+  });
+  // subtle base ring if rounding leaves a gap
+  if (start < 100) {
+    stops.push(`rgba(255,255,255,0.10) ${start.toFixed(2)}% 100%`);
+  }
+  return `conic-gradient(from 270deg, ${stops.join(", ")})`;
+}
+
+function renderSkillsDonuts() {
+  const root = document.getElementById("skillsCharts");
+  if (!root) return;
+
+  root.innerHTML = "";
+
+  skillsData.forEach(group => {
+    const items = normalizeItems(group.items);
+    const gradient = buildConicGradient(items);
+
+    const card = document.createElement("article");
+    card.className = "skills-card";
+    card.setAttribute("aria-label", `${group.title} skill donut chart`);
+
+    card.innerHTML = `
+      <div class="skills-card__top">
+        <div>
+          <h3>${group.title}</h3>
+          <p class="muted" style="margin:0.25rem 0 0;">${group.subtitle}</p>
+        </div>
+        <span class="pill pill--accent">Donut</span>
+      </div>
+
+      <div class="donut-wrap">
+        <div class="donut" role="img" aria-label="${group.title} distribution">
+          <div class="donut-center">
+            <strong>${group.centerLabel}</strong>
+            <span>${items.length} skills</span>
+          </div>
+        </div>
+
+        <ul class="legend" aria-label="${group.title} legend"></ul>
+      </div>
+    `;
+
+    // Apply gradient
+    const donut = card.querySelector(".donut");
+    donut.style.background = gradient;
+
+    // Build legend
+    const legend = card.querySelector(".legend");
+    items.forEach(it => {
+      const li = document.createElement("li");
+      li.innerHTML = `
+        <span class="legend-left">
+          <span class="swatch" style="background:${it.color}"></span>
+          <span class="legend-name" title="${it.name}">${it.name}</span>
+        </span>
+        <span class="legend-val">${Math.round(it.pct)}%</span>
+      `;
+      legend.appendChild(li);
+    });
+
+    root.appendChild(card);
+  });
+}
+
+// Render once on load
+renderSkillsDonuts();
   </script>
 </body>
 </html>
